@@ -1,0 +1,16 @@
+# vscode 
+############
+.vscode
+.vscode/
+
+# keys - just in case #
+#######################
+*.pem
+
+####MISC#####
+
+#ignore log files
+*.log
+
+###
+*.asc
