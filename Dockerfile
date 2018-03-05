@@ -1,7 +1,7 @@
 # Version: 0.0.1
 FROM jenkins/jenkins:lts-alpine
 LABEL org.thenuclei.creator="Brian Provenzano" \
-      org.thenuclei.email="bproven@example.com"
+      org.thenuclei.email="brian@thenuclei.org"
 USER root
 RUN apk add --no-cache python3 bash git && \
     python3 -m ensurepip && \
