@@ -1,0 +1,32 @@
+{
+    "family": "jenkins",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "jenkinslts",
+            "image": "576773979706.dkr.ecr.us-west-2.amazonaws.com/jenkins:latest",
+            "cpu": 10,
+            "memory": 1500,
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "mountPoints": [
+                {
+                    "sourceVolume": "jenkins_home",
+                    "containerPath": "/var/jenkins_home"
+                }
+            ]       
+        }
+    ],
+    "volumes": [
+        {
+            "name": "jenkins_home",
+            "host": {}
+        }
+    ]
+}
