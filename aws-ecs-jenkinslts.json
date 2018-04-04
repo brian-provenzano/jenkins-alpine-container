@@ -1,11 +1,10 @@
 {
     "family": "jenkins",
-    "networkMode": "awsvpc",
     "containerDefinitions": [
         {
             "name": "jenkinslts",
-            "image": "576773979706.dkr.ecr.us-west-2.amazonaws.com/jenkins:latest",
-            "cpu": 10,
+            "image": "",
+            "cpu": 128,
             "memory": 1500,
             "portMappings": [
                 {
