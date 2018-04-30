@@ -2,7 +2,7 @@
 build:
 	@docker build -t warpigg/jenkinsalpine-lts:$(version) .
 run:
-	@docker run -p 8080:8080 --name=jenkins-alplts-master -d -v jenkins_home:/var/jenkins_home warpigg/jenkinsalpine-lts:$(version)
+	@docker run -p 8081:8081 --name=jenkins-alplts-master -d -v jenkins_home:/var/jenkins_home warpigg/jenkinsalpine-lts:$(version)
 # @docker run -p 8080:8080 --name=jenkinslts-master -d --env JAVA_OPTS="-Xmx2048m" --env JENKINS_OPTS="" jenkins/jenkins:lts
 start:
 	@docker container start jenkins-alplts-master

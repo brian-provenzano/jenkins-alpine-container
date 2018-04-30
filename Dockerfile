@@ -3,14 +3,14 @@ FROM jenkins/jenkins:lts-alpine
 LABEL org.thenuclei.creator="Brian Provenzano" \
       org.thenuclei.email="brian@thenuclei.org"
 USER root
-RUN apk add --no-cache python3 alpine-conf tzdata bash git && \
+RUN apk add --no-cache python3 go alpine-conf tzdata bash git && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install requests flask pytest pytest-runner
 RUN setup-timezone -z America/Los_Angeles && ntpd -d -q -n -p north-america.pool.ntp.org
 ADD hashicorp-get /bin/hashicorp-get
 RUN chmod +x /bin/hashicorp-get
-RUN hashicorp-get terraform latest -y -q && hashicorp-get packer latest -y -q
+RUN hashicorp-get terraform latest /bin/ -y -q && hashicorp-get packer latest /bin/ -y -q
 COPY --chown=jenkins:jenkins basic-security.groovy /var/jenkins_home/init.groovy.d/basic-security.groovy
 #COPY --chown=jenkins:jenkins jenkins.install.UpgradeWizard.state /var/jenkins_home/
 RUN echo 2 > /var/jenkins_home/jenkins.install.UpgradeWizard.state
